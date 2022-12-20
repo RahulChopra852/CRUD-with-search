@@ -1,0 +1,125 @@
+<style>
+
+  .container {
+   background-image: url("/assets/background2.jpg");
+   background-color: #cccccc;
+   background-repeat:no-repeat;
+   background-size: cover;
+   border-radius:40px;
+   width:1000px;
+   padding-bottom:150px;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+</style>
+
+<div class="container-fluid">
+  <button type="button" class="btn btn-link">
+    <%= link_to '← Back to meal planner', foods_path %>
+  </button>
+</div>
+
+    <div class="container">
+    <p id="notice">
+      <%= notice %>
+    </p>
+            <h1 style="text-align:center;padding-top:120px">
+              <%= @food.title %>
+            </h1>
+    <br>
+    <div class="center">
+      <%= image_tag(@food.image, style:"width:500px; border-radius:20px;")%>
+      <h3 style="text-align:center">Type of food:
+      <%= @food.Type_of_food_ %></h3>
+    </div>
+
+      <div class="row" style="padding-top:20px">
+        <div class="col-lg-3">
+        </div>
+
+    <div class="col-lg-4">
+      <p>
+        <strong>Calories:</strong>
+        <%= @food.calories %>
+      </p>
+      <p>
+        <strong>Category:</strong>
+        <%= @food.Veg_Non_Veg_Vegan %>
+      </p>
+    </div>
+
+    <div class="col-lg-4">
+      <p>
+        <strong>Time to prep:</strong>
+        <%= @food.time_to_prep %>
+            <br><br>
+        <strong>Time to cook:</strong>
+        <%= @food.time_to_cook %>
+      </p>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-lg-2"></div>
+
+  <div class="col-lg-8">
+    <h1 style="text-align:center">Ingredients & Quantity:</h1>
+      <%= @food.string %>
+    </div>
+  </div> <br>
+
+  <div class="d-grid gap-2 d-md-block" style="text-align:center">
+    <button class="btn btn-success" type="button" style="color:white">
+      <%= link_to "Order From Big Basket", "https://www.bigbasket.com/cl/fruits-vegetables/",:style => 'color:white'%>
+    </button>
+
+    <button class="btn btn-success" type="button">
+      <%= link_to "Order From Big Groffers", "https://grofers.com/cn/vegetables-fruits/cid/1487",:style => 'color:white'%>
+    </button>
+  </div> <br>
+
+<div class="row">
+  <h1 style="text-align:center">Steps</h1>
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <p>
+      <strong>Step 1:</strong>
+      <%= @food.step_1 %>
+    </p>
+
+    <p>
+      <strong>Step 2:</strong>
+      <%= @food.step_2 %>
+    </p>
+
+    <p>
+      <strong>Step 3:</strong>
+      <%= @food.step_3 %>
+    </p>
+
+    <p>
+      <strong>Step 4:</strong>
+      <%= @food.step_4 %>
+    </p>
+
+    <p>
+      <strong>Step 5:</strong>
+      <%= @food.step_5 %>
+    </p>
+
+    <p>
+      <strong>Additional steps:</strong>
+      <%= @food.additional_steps %>
+    </p>
+  </div>
+  <% if user_signed_in? %>
+  <button type="button" class="btn btn-link">
+      <%= link_to 'Made a mistake? No worries! Click me to edit', edit_food_path(@food) %>
+  </button>
+  <% end %>
+      </div>
+    </div>

@@ -1,0 +1,16 @@
+<style>
+  .center{
+    text-align:center;
+  }
+</style>
+
+
+  <h1 style="text-align:center">New Recepie</h1>
+
+  <%= render 'form', food: @food %>
+
+<div class="center">
+    <button type="button" class="btn-outline-primary">
+      <%= link_to 'Back', foods_path %>
+    </button>
+</div>

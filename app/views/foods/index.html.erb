@@ -1,0 +1,94 @@
+
+<style>
+
+  th,thead{
+    text-align: center;
+    font-size:15px
+  }
+
+  td{
+    text-align: center;
+    height: 150px;
+    font-size:15px;
+  }
+
+    .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding: 10px;
+    font-size: 5px;
+  }
+</style>
+
+    <h4 style="text-align:center">
+      <p id="notice"><%= notice %></p>
+    </h4>
+
+    <h1 style="text-align:center">
+      <img src="/assets/mango_exc.jpg"style="width:140px; padding-right:20px">
+          Recipes
+      <img src="/assets/mango_surp.jpg"style="width:130px; padding-left:20px">
+    </h1>
+    <br>
+    <div class="container sticky" style="text-align:center">
+      <button type="button" class="btn btn-light" style=" border-radius:40px">
+        <%= link_to 'Got A New Recepie??', new_food_path %>
+      </button>
+    </div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <div class="container" style="width:1000px">
+        <input class="form-control" id="myInput" type="text" placeholder="Search by recepie name Eg. Pastaa || get recommendations based on calories intake Eg. 585 || cooking / prep time Eg. 20 mins">
+          <br>
+            <table class="table table-light table-hover">
+              <thead>
+                <tr>
+                  <th style="text-align:center">Title</th>
+                  <th style="text-align:center">Image</th>
+                  <th style="text-align:center">Calories</th>
+                  <th style="text-align:center">Prep Time</th>
+                  <th style="text-align:center">Cooking Time</th>
+                  <th style="text-align:center">Veg / Non Veg / Vegan</th>
+                  <th style="text-align:center">Category</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+        <tbody id="myTable">
+          <% @foods.each do |food| %>
+            <tr>
+               <td style="vertical-align: center;"><%= image_tag food.image, style:"width:158px; border-radius:20px;"%> </td>
+               <td style="vertical-align: middle;"><%= link_to food.title, food %></td>
+               <td style="vertical-align: middle;"><%= food.calories %></td>
+               <td style="vertical-align: middle;"><%= food.time_to_prep %></td>
+               <td style="vertical-align: middle;"><%= food.time_to_cook %></td>
+               <td style="vertical-align: middle;"><%= food.Veg_Non_Veg_Vegan %></td>
+               <td style="vertical-align: middle;"><%= food.Type_of_food_ %></td>
+
+               <% if user_signed_in? %>
+                 <td style="vertical-align: middle;"><%= link_to 'Edit', edit_food_path(food) %></td>
+               <% else %>
+             <% end %>
+             <% if warden.user.admin==true %> 
+                <td style="vertical-align: middle;"><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% else %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>

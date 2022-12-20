@@ -1,0 +1,17 @@
+
+
+
+
+    <h1 style="text-align:center">Editing Blog</h1>
+
+    <%= render 'form', blog: @blog %>
+
+  <div class="container"style="text-align:center">
+    <button type="button" class="btn btn-warning">
+      <%= link_to 'Show', @blog, :style=>"color:white; padding:30px; margin:20px" %>
+    </button>
+
+    <button type="button" class="btn btn-warning">
+      <%= link_to 'Back', blogs_path, :style=>"color:white; padding:30px; margin:20px" %>
+    </button>
+  </div>

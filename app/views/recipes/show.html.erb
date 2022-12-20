@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container"style="padding-top:100px">
+
+        <h1 style="text-align:center">
+          <%= @recipe.title %>
+        </h1>
+
+      <div style="width:200px; heigh:100px; ">
+        <%= image_tag(@recipe.image, style:"width:100%; border-radius:20px")%>
+      </div>
+
+      <p>
+        <strong>Calories:</strong>
+        <%= @recipe.calories %>
+      </p>
+
+      <p>
+        <strong>Time to prep:</strong>
+        <%= @recipe.time_to_prep %>
+      </p>
+
+      <p>
+        <strong>Time to cook:</strong>
+        <%= @recipe.time_to_cook %>
+      </p>
+
+      <p>
+        <strong>Ingredients:</strong>
+        <%= @recipe.ingredient %>
+      </p>
+
+      <p>
+        <strong>Steps</strong>
+      </p>
+
+      <p>
+        <strong>Steps-1</strong>
+        <%= @recipe.step_1 %><br>
+      </p>
+      <p>
+        <strong>Steps-1</strong>
+        <%= @recipe.step_2 %><br>
+      </p>
+      <p>
+        <strong>Steps-1</strong>
+        <%= @recipe.step_3 %><br>
+      </p>
+      <p>
+        <strong>Steps-1</strong>
+        <%= @recipe.step_4 %><br>
+      </p>
+      <p>
+        <strong>Steps-1</strong>
+        <%= @recipe.step_5 %><br>
+      </p>
+
+
+      <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+      <%= link_to 'Back', recipes_path %>
+</div>

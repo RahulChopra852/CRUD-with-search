@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  title: MyString
+  time: 2021-06-14 21:19:19
+  comments: MyText
+  article: MyText
+  randomfield1: MyText
+  randomfield2: MyText
+  randomfield3: MyText
+
+two:
+  image: MyString
+  title: MyString
+  time: 2021-06-14 21:19:19
+  comments: MyText
+  article: MyText
+  randomfield1: MyText
+  randomfield2: MyText
+  randomfield3: MyText

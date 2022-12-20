@@ -1,0 +1,18 @@
+
+
+
+  <h1 style="text-align:center">New Blog</h1>
+
+  <%= render 'form', blog: @blog %>
+
+<div class="container" style="text-align:center">
+
+  <button type="button" class="btn btn-warning" style=" border-radius:40px">
+    <%= link_to 'Back', blogs_path, :style=>"color:white; padding:20px; border-radius:40px" %>
+  </button>
+
+  <button type="button" class="btn btn-warning" style=" border-radius:40px">
+    <%= link_to 'Got A New Recepie??? Click Here To Add', new_food_path,  :style=>"color:white" %>
+  </button>
+
+</div>

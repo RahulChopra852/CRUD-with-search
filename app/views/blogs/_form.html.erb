@@ -1,0 +1,47 @@
+
+<%= simple_form_for(@blog) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class="container" style="width:900px; text-align:center" >
+
+  <div class="form-inputs">
+    <%= f.file_field :image, class:"form-control" %>
+  </div> <br>
+
+  <div class="form-inputs">
+    <%= f.input :title, class:"form-control", placeholder:"Insert The Title Of The Blog" %>
+  </div> <br>
+
+  <div class="form-inputs">
+    <%= f.input :time, class:"form-control" %>
+  </div> <br>
+
+  <div class="form-inputs">
+    <%= f.input :comments, class:"form-control", placeholder:"Insert Your name with _" %>
+  </div> <br>
+
+  <div class="form-inputs">
+    <%= f.input :article, class:"form-control", placeholder:"Insert First Para" %>
+  </div> <br>
+
+  <div class="form-inputs">
+    <%= f.input :randomfield1, class:"form-control", placeholder:"Insert second Para" %>
+  </div> <br>
+
+  <div class="form-inputs">
+    <%= f.input :randomfield2, class:"form-control", placeholder:"Insert third Para" %>
+  </div> <br>
+
+  <div class="form-inputs">
+    <%= f.input :randomfield3, class:"form-control", placeholder:"Insert fourth Para" %>
+  </div> <br>
+
+  <div class="form-actions">
+    <button type="button" class="btn btn-warning">
+      <%= f.button :submit, :style=>"color:white" %>
+    </button><br><br>
+  </div>
+
+ <% end %>
+</div>

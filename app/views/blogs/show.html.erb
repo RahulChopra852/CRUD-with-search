@@ -1,0 +1,60 @@
+
+<div class="container" style="text-aling:center">
+  <p id="notice">
+    <%= notice %>
+  </p>
+</div>
+
+<button type="button" class="btn btn-link">
+  <%= link_to '← Take Me Back To Blogs', blogs_path, :style=>"color:black;" %>
+</button>
+
+  <div class="container" style="width:800px; font-size:20px">
+
+    <h2 style="text-align:center; color:red">
+      <strong>
+        <%= @blog.title %>
+      </strong>
+    </h2>
+<br>
+      <p>
+        <%= image_tag(@blog.image, style:"width:400px; border-radius:12px") %>
+      </p>
+
+      <strong>
+        <%= @blog.comments %>
+      </strong>
+
+      <br>  <br>
+
+      <p>
+        <%= @blog.article %>
+      </p>
+
+      <p>
+          <%= @blog.randomfield1 %>
+      </p>
+
+      <p>
+        <%= @blog.randomfield2 %>
+      </p>
+
+      <p>
+        <%= @blog.randomfield3 %>
+      </p>
+
+      <br>
+
+<% if user_signed_in? %>
+  <div style="text-align:center">
+      <button type="button" class="btn btn-warning">
+        <%= link_to 'Edit', edit_blog_path(@blog), :style=>"color:white; padding:30px; margin:20px" %>
+      </button>
+    </div>
+<% end %>
+
+  <button type="button" class="btn btn-warning">
+    <%= link_to 'Back', blogs_path, :style=>"color:white; padding:30px; margin:20px" %>
+  </button>
+
+</div>

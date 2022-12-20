@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+  <h1 style="text-align:center">
+    <img src="/assets/mango_exc.jpg"style="width:140px; padding-right:20px">
+        Recipes
+    <img src="/assets/mango_surp.jpg"style="width:130px; padding-left:20px">
+  </h1>
+
+<br>
+
+<div class="container">
+  <table class="table table-light table-hover">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Calories</th>
+      <th>Time to prep</th>
+      <th>Time to cook</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.image%></td>
+        <td><%= recipe.title %></td>
+        <td><%= recipe.calories %></td>
+        <td><%= recipe.time_to_prep %></td>
+        <td><%= recipe.time_to_cook %></td>
+        <td><%= link_to 'Show', recipe %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path %>
+</div>

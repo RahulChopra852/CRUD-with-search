@@ -1,0 +1,16 @@
+
+<h1 style="text-align:center">Editing Recipes</h1>
+
+<%= render 'form', food: @food %>
+
+
+<div class="container"style="text-align:center">
+  
+  <button type="button" class="btn btn-warning" style="background-color:black; margin:10px; width:200px">
+      <%= link_to 'Show', @food %>
+  </button>
+
+  <button type="button" class="btn btn-warning" style="background-color:black; margin:10px; width:200px">
+    <%= link_to 'Back', foods_path %>
+  </button>
+</div>

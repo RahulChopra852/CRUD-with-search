@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @blogpost.post_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @blogpost.name %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @blogpost.time %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @blogpost.body %>
+</p>
+
+<p>
+  <strong>Extra1:</strong>
+  <%= @blogpost.extra1 %>
+</p>
+
+<p>
+  <strong>Extra2:</strong>
+  <%= @blogpost.extra2 %>
+</p>
+
+<p>
+  <strong>Extra3:</strong>
+  <%= @blogpost.extra3 %>
+</p>
+
+<p>
+  <strong>Extra4:</strong>
+  <%= @blogpost.extra4 %>
+</p>
+
+<%= link_to 'Edit', edit_blogpost_path(@blogpost) %> |
+<%= link_to 'Back', blogposts_path %>

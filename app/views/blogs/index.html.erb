@@ -1,0 +1,111 @@
+
+  <style>
+    .text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+
+    .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding: 10px;
+    font-size: 5px;
+  }
+  </style>
+
+<p id="notice"><%= notice %></p>
+
+<div class="container-fluid sticky" style="text-align:center">
+  <h1 style="text-align:center">Wanna write a blog about food?</h1> <br>
+
+    <button type="button" class="btn btn-warning" style=" border-radius:40px">
+      <%= link_to 'Write A New Blog', new_blog_path, :style=>"color:white" %>
+    </button>
+
+    <button type="button" class="btn btn-warning" style=" border-radius:40px">
+      <%= link_to 'Got A New Recepie??? Click Here To Add', new_food_path,  :style=>"color:white" %>
+    </button>
+  </div>
+<br>
+<div class="container">
+    <table class="table table-borderless">
+      <!--
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Time</th>
+            <th>Comments</th>
+            <th>Article</th>
+            <th>Randomfield1</th>
+            <th>Randomfield2</th>
+            <th>Randomfield3</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+      -->
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+
+      <tr>
+        <td>
+          <%= image_tag blog.image, style:"width:500px; border-radius:20px;" %> <br> <br>
+         </td>
+      <td>
+        <h2>
+          <strong>
+            <%= link_to blog.title, blog %>
+          </strong>
+
+        <br>
+          <%= blog.comments %>
+        </h2>
+          <p> blog posted on:  <%= blog.time %> </p>
+      <br>
+        <div class="text">
+          <%= blog.article%><br>
+        </div>
+  <!--
+        <%= blog.randomfield1 %><br>
+        <%= blog.randomfield2 %><br>
+        <%= blog.randomfield3 %><br>
+  -->
+  <br>
+      <div style="text-align:center">
+          <button type="button" class="btn btn-warning" >
+            <%= link_to 'Read More', blog, :style=>"color:white" %>
+          </button>
+
+      <% if user_signed_in? %>
+          <button type="button" class="btn btn-dark">
+            <%= link_to 'Edit', edit_blog_path(blog), :style=>"color:white" %>
+          </button>
+        <% else %>
+      <% end %>
+
+       <% if warden.user.admin==true %>
+          <button type="button" class="btn btn-danger">
+            <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } , :style=>"color:white"%>
+          </button>
+          <% else %>
+      <% end %>
+        </td>
+  <!--
+        <td><%= blog.time %></td>
+        <td><%= blog.comments %></td>
+        <td><%= blog.article %></td>
+        <td><%= blog.randomfield1 %></td>
+        <td><%= blog.randomfield2 %></td>
+        <td><%= blog.randomfield3 %></td>
+  -->
+
+      <% end %>
+    </tbody>
+  </table>
+</div>
